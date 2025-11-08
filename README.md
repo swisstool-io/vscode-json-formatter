@@ -1,6 +1,6 @@
 # 🧩 JSON Formatter
 [![CI](https://github.com/swisstool-io/vscode-json-formatter/actions/workflows/ci.yml/badge.svg)](https://github.com/swisstool-io/vscode-json-formatter/actions/workflows/ci.yml)
-[![Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/swisstool.json-formatter.svg?color=blue)](https://marketplace.visualstudio.com/items?itemName=swisstool.json-formatter)
+[![Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/swisstool.simple-json-formatter.svg?color=blue)](https://marketplace.visualstudio.com/items?itemName=swisstool.simple-json-formatter)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 
@@ -143,7 +143,7 @@ You can tweak behavior in your VS Code settings:
 
 **From Marketplace:**
 ```bash
-ext install swisstool.json-formatter
+ext install swisstool.simple-json-formatter
 ````
 
 **From source:**

@@ -9,13 +9,13 @@ suite('JSON Formatter Test Suite', () => {
   
   suiteSetup(async () => {
     // Create a unique test workspace directory
-    testWorkspaceRoot = path.join(os.tmpdir(), `json-formatter-test-${Date.now()}`);
+    testWorkspaceRoot = path.join(os.tmpdir(), `simple-json-formatter-test-${Date.now()}`);
     if (!fs.existsSync(testWorkspaceRoot)) {
       fs.mkdirSync(testWorkspaceRoot, { recursive: true });
     }
     
     // Ensure extension is activated
-    const ext = vscode.extensions.getExtension('SwissTool.json-formatter');
+    const ext = vscode.extensions.getExtension('SwissTool.simple-json-formatter');
     if (ext && !ext.isActive) {
       await ext.activate();
     }
@@ -29,7 +29,7 @@ suite('JSON Formatter Test Suite', () => {
   });
 
   test('Extension should be present and activated', async () => {
-    const ext = vscode.extensions.getExtension('SwissTool.json-formatter');
+    const ext = vscode.extensions.getExtension('SwissTool.simple-json-formatter');
     assert.ok(ext, 'Extension should be present');
     assert.ok(ext.isActive, 'Extension should be activated');
   });
