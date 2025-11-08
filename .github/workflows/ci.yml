@@ -60,6 +60,6 @@ jobs:
         if: matrix.os == 'ubuntu-latest'
         uses: actions/upload-artifact@v4
         with:
-          name: simple-json-formatter-vsix
+          name: json-formatter-offline-vsix
           path: '*.vsix'
           retention-days: 7

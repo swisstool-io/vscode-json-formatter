@@ -1,5 +1,5 @@
 {
-  "name": "simple-json-formatter",
+  "name": "json-formatter-offline",
   "displayName": "JSON Formatter",
   "description": "Beautify, minify, and sort JSON/JSONC files with a single click",
   "version": "1.0.0",
