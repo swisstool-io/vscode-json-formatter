@@ -1,0 +1,207 @@
+{
+  "name": "json-formatter",
+  "displayName": "JSON Formatter",
+  "description": "Beautify, minify, and sort JSON/JSONC files with a single click",
+  "version": "1.0.0",
+  "publisher": "SwissTool",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SwissTool-io/vscode-json-formatter"
+  },
+  "bugs": {
+    "url": "https://github.com/SwissTool-io/vscode-json-formatter/issues"
+  },
+  "categories": [
+    "Formatters"
+  ],
+  "keywords": [
+    "json",
+    "jsonc",
+    "beautify",
+    "minify",
+    "format",
+    "sort",
+    "prettify",
+    "formatter",
+    "json with comments"
+  ],
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "activationEvents": [
+    "onLanguage:json",
+    "onLanguage:jsonc"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "JSON Formatter",
+      "properties": {
+        "jsonFormatter.sort.recursive": {
+          "type": "boolean",
+          "default": true,
+          "description": "Sort object keys recursively in nested objects."
+        },
+        "jsonFormatter.sort.caseInsensitive": {
+          "type": "boolean",
+          "default": true,
+          "description": "Use case-insensitive sorting for object keys."
+        },
+        "jsonFormatter.showSuccessToast": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show a notification message after successful formatting (instead of status bar)."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "jsonFormatter.beautify",
+        "title": "JSON: Beautify",
+        "category": "JSON Formatter"
+      },
+      {
+        "command": "jsonFormatter.minify",
+        "title": "JSON: Minify",
+        "category": "JSON Formatter"
+      },
+      {
+        "command": "jsonFormatter.sort",
+        "title": "JSON: Sort Keys",
+        "category": "JSON Formatter"
+      },
+      {
+        "command": "jsonFormatter.beautifySort",
+        "title": "JSON: Beautify & Sort",
+        "category": "JSON Formatter"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "jsonFormatter.beautify",
+          "when": "resourceExtname =~ /\\.(json|jsonc)$/",
+          "group": "2_jsonFormatter@1"
+        },
+        {
+          "command": "jsonFormatter.minify",
+          "when": "resourceExtname =~ /\\.(json|jsonc)$/",
+          "group": "2_jsonFormatter@2"
+        },
+        {
+          "command": "jsonFormatter.sort",
+          "when": "resourceExtname =~ /\\.(json|jsonc)$/",
+          "group": "2_jsonFormatter@3"
+        },
+        {
+          "command": "jsonFormatter.beautifySort",
+          "when": "resourceExtname =~ /\\.(json|jsonc)$/",
+          "group": "2_jsonFormatter@4"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "jsonFormatter.beautify",
+          "when": "resourceExtname =~ /\\.(json|jsonc)$/",
+          "group": "1_jsonFormatter@1"
+        },
+        {
+          "command": "jsonFormatter.minify",
+          "when": "resourceExtname =~ /\\.(json|jsonc)$/",
+          "group": "1_jsonFormatter@2"
+        },
+        {
+          "command": "jsonFormatter.sort",
+          "when": "resourceExtname =~ /\\.(json|jsonc)$/",
+          "group": "1_jsonFormatter@3"
+        },
+        {
+          "command": "jsonFormatter.beautifySort",
+          "when": "resourceExtname =~ /\\.(json|jsonc)$/",
+          "group": "1_jsonFormatter@4"
+        }
+      ],
+      "editor/title/context": [
+        {
+          "command": "jsonFormatter.beautify",
+          "when": "resourceExtname =~ /\\.(json|jsonc)$/",
+          "group": "1_jsonFormatter@1"
+        },
+        {
+          "command": "jsonFormatter.minify",
+          "when": "resourceExtname =~ /\\.(json|jsonc)$/",
+          "group": "1_jsonFormatter@2"
+        },
+        {
+          "command": "jsonFormatter.sort",
+          "when": "resourceExtname =~ /\\.(json|jsonc)$/",
+          "group": "1_jsonFormatter@3"
+        },
+        {
+          "command": "jsonFormatter.beautifySort",
+          "when": "resourceExtname =~ /\\.(json|jsonc)$/",
+          "group": "1_jsonFormatter@4"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "jsonFormatter.beautify",
+          "when": "resourceExtname =~ /\\.(json|jsonc)$/ || editorLangId == json || editorLangId == jsonc"
+        },
+        {
+          "command": "jsonFormatter.minify",
+          "when": "resourceExtname =~ /\\.(json|jsonc)$/ || editorLangId == json || editorLangId == jsonc"
+        },
+        {
+          "command": "jsonFormatter.sort",
+          "when": "resourceExtname =~ /\\.(json|jsonc)$/ || editorLangId == json || editorLangId == jsonc"
+        },
+        {
+          "command": "jsonFormatter.beautifySort",
+          "when": "resourceExtname =~ /\\.(json|jsonc)$/ || editorLangId == json || editorLangId == jsonc"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "jsonFormatter.beautify",
+        "key": "shift+alt+f",
+        "mac": "shift+option+f",
+        "when": "editorTextFocus && (editorLangId == json || editorLangId == jsonc)"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "npm run clean && esbuild src/extension.ts --bundle --minify --platform=node --outfile=out/extension.js --external:vscode --format=cjs",
+    "watch": "npm run clean && esbuild src/extension.ts --bundle --platform=node --outfile=out/extension.js --sourcemap --watch --external:vscode --format=cjs",
+    "clean": "rimraf out",
+    "build:test": "tsc -p tsconfig.test.json",
+    "pretest": "npm run compile && npm run build:test",
+    "test": "node out/test/runTests.js",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/chai": "^5.2.3",
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^20.19.24",
+    "@types/sinon": "^17.0.4",
+    "@types/vscode": "^1.90.0",
+    "@vscode/test-electron": "^2.5.2",
+    "@vscode/vsce": "^3.2.1",
+    "chai": "^6.2.0",
+    "esbuild": "^0.24.0",
+    "eslint": "^9.17.0",
+    "@typescript-eslint/eslint-plugin": "^8.20.0",
+    "@typescript-eslint/parser": "^8.20.0",
+    "glob": "^11.0.3",
+    "mocha": "^11.7.5",
+    "rimraf": "^6.0.1",
+    "sinon": "^21.0.0",
+    "typescript": "^5.9.3"
+  }
+}
