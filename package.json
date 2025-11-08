@@ -1,7 +1,7 @@
 {
-  "name": "json-formatter",
-  "displayName": "JSON Formatter",
-  "description": "Beautify, minify, and sort JSON/JSONC files with a single click",
+  "name": "json-formatter-offline",
+  "displayName": "JSON Formatter Offline",
+  "description": "Beautify, minify, and sort JSON/JSONC files locally — no data ever leaves your editor.",
   "version": "1.0.0",
   "publisher": "SwissTool",
   "license": "MIT",
