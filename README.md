@@ -3,8 +3,6 @@
 [![Marketplace Version](https://img.shields.io/visual-studio-marketplace/v/swisstool.json-formatter.svg?color=blue)](https://marketplace.visualstudio.com/items?itemName=swisstool.json-formatter)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-> Beautify, minify, and sort JSON and JSONC files — directly inside VS Code.
-> One click, clean structure, and readable data.
 
 How many times have you opened a messy JSON file that’s all on one line — or a config full of unordered keys and trailing commas?
 
@@ -57,7 +55,6 @@ Triggers **Beautify** on the current file or selection.
 Select a block of JSON text → Run any formatter command →
 Only that portion will be transformed.
 
----
 
 ## ⚙️ Configuration
 
@@ -71,7 +68,6 @@ You can tweak behavior in your VS Code settings:
 }
 ```
 
----
 
 ## 🧠 How It Works
 
@@ -82,7 +78,6 @@ You can tweak behavior in your VS Code settings:
 * Validates and shows clear errors if JSON is invalid
 * Applies edits safely and atomically — never breaks your file
 
----
 
 ## 💡 Examples
 
@@ -144,7 +139,6 @@ You can tweak behavior in your VS Code settings:
 * Very large JSON files (>10MB) may take slightly longer to process
 
 
-
 ## 🧩 Installation
 
 **From Marketplace:**
@@ -163,7 +157,6 @@ npm run build:test
 npm test
 ```
 
-
 ## 🧪 Requirements
 
 | Platform          | Version               |
@@ -172,9 +165,8 @@ npm test
 | OS                | macOS, Windows, Linux |
 | Node.js (for dev) | 20.x                  |
 
----
 
-## 🛠️ Development
+## 💻 Development
 
 To run locally:
 
